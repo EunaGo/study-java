@@ -1,4 +1,4 @@
-# study-java
+# study-java :: BITstudy
 >스터디 그룹에서 하는 자바 코드를 모아놓은 Repository  
 >'Do it!' 으로 연습  
 >Java 연습용  

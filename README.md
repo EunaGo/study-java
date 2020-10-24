@@ -1,2 +1,3 @@
 # study-java
-Java 연습용
+>1. BITstudy
+>2. Programmers
