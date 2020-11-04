@@ -1,7 +1,6 @@
 package Lv1;
 
 import java.util.*;
-
 /*
 [문제 설명]
 배열 arr가 주어집니다. 배열 arr의 각 원소는 숫자 0부터 9까지로 이루어져 있습니다. 
@@ -16,16 +15,9 @@ arr = [4, 4, 4, 3, 3] 이면 [4, 3] 을 return 합니다.
 배열 arr의 크기 : 1,000,000 이하의 자연수
 배열 arr의 원소의 크기 : 0보다 크거나 같고 9보다 작거나 같은 정수
 */
-
 public class I_do_not_like_the_same_number {
 
-	public static void main(String[] args) {
-
-		int[] answer = { 1, 1, 3, 3, 3, 3, 3, 0, 1, 1 };
-		solution(answer);
-		
-	}
-
+	// 나의 풀이
 	public static ArrayList<Integer> solution(int[] arr) {
 
 		ArrayList<Integer> answer = new ArrayList<>();
@@ -42,6 +34,7 @@ public class I_do_not_like_the_same_number {
 		return answer;
 	}
 	
+	// ㅉ의 풀이 배열.ver >> ArrayList보다 속도가 빠름
 	public static int[] solution2(int[]arr) { 
 		
 		int cnt =1;
@@ -63,6 +56,7 @@ public class I_do_not_like_the_same_number {
 		return answer;
 	}
 	
+	// ㅉ의 풀이 ArrayList.ver
 	public static ArrayList<Integer> solution3(int[] arr) {
 
 		ArrayList<Integer> answer = new ArrayList<>();
@@ -76,6 +70,11 @@ public class I_do_not_like_the_same_number {
 
 		System.out.println("answer size: " + answer.size() + "  answer :" + answer);
 		return answer;
+	}
+	
+	public static void main(String[] args) {
+		int[] answer = { 1, 1, 3, 3, 3, 3, 3, 0, 1, 1 };
+		solution(answer);
 	}
 
 }
