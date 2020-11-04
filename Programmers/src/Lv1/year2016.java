@@ -8,18 +8,10 @@ solution을 완성하세요. 요일의 이름은 일요일부터 토요일까지
 [제한 조건]
 2016년은 윤년입니다.
 2016년 a월 b일은 실제로 있는 날입니다. (13월 26일이나 2월 45일같은 날짜는 주어지지 않습니다)
- 
-2020.10.24.토
 */
+public class Year2016 {
 
-public class year2016 {
-
-	public static void main(String[] args) {
-
-		System.out.println(solution(5, 24));
-
-	}
-
+	// 나의 풀이
 	public static String solution(int a, int b) {
 		String answer = "";
 		int cnt = 0;
@@ -88,6 +80,26 @@ public class year2016 {
 		}
 
 		return answer;
+	}
+	
+	// 다른 사람의 풀이
+	public String solution2(int a, int b) {
+	      String answer = "";
+
+	      int[] c = {31,29,31,30,31,30,31,31,30,31,30,31};
+	      String[] MM ={"FRI","SAT","SUN","MON","TUE","WED","THU"};
+	      int Adate = 0;
+	      for(int i = 0 ; i< a-1; i++){
+	          Adate += c[i];
+	      }
+	      Adate += b-1;
+	      answer = MM[Adate %7];
+
+	      return answer;
+	  }
+	
+	public static void main(String[] args) {
+		System.out.println(solution(5, 24));
 	}
 
 }
