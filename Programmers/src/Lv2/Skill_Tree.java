@@ -3,6 +3,7 @@ package Lv2;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+
 /*
 [문제 설명]
 선행 스킬이란 어떤 스킬을 배우기 전에 먼저 배워야 하는 스킬을 뜻합니다.
@@ -27,9 +28,7 @@ public class Skill_Tree {
 	// 나의 풀이 (2-3ms)
 	public int solution(String skill, String[] trees) {
 //      List<String>list2= Arrays.asList(tmp); //java.util.Arrays.ArrayList
-
 		int answer = 0;
-
 		for (int i = 0; i < trees.length; i++) {
 			int cont = 0;
 			int chk = 0;
@@ -46,10 +45,8 @@ public class Skill_Tree {
 				}
 			}
 
-			if (cont > 0 || chk == trees[i].length()) {
-				System.out.println("가능한 스킬 : " + trees[i]);
+			if (cont > 0 || chk == trees[i].length())
 				answer++;
-			}
 		}
 		return answer;
 	}
@@ -70,8 +67,49 @@ public class Skill_Tree {
 		return answer;
 	}
 
-	// ㅉ의 풀이 (0.2ms)
-	public int solution3(String skill, String[] trees) {
+	// 다른 사람 풀이 - Iterator (실패) : remove시 size가 계속 변함
+	public int solution3(String skill, String[] skill_trees) {
+		int answer = 0;
+		ArrayList<String> skillTrees = new ArrayList<String>(Arrays.asList(skill_trees));
+
+		for (int i = 0; i < skillTrees.size(); i++) {
+			if (skill.indexOf(skillTrees.get(i).replaceAll("[^" + skill + "]", "")) != 0) {
+				skillTrees.remove(i);
+			}
+		}
+		answer = skillTrees.size();
+		return answer;
+	}
+
+	// solution3을 보완한 코드
+	public int solution4(String skill, String[] trees) {
+		int answer = 0;
+
+		ArrayList<String> skillTrees = new ArrayList<String>(Arrays.asList(trees));
+		for (int i = 0; i < skillTrees.size(); i++) {
+			String s = skillTrees.get(i);
+			if (skill.indexOf(s.replaceAll("[^" + skill + "]", "")) == 0) {
+				answer++;
+			}
+		}
+
+		return answer;
+	}
+
+	// 다른 사람의 풀이 - ArrayList, Iterator
+	public int solution5(String skill, String[] trees) {
+		int answer = 0;
+
+		for (String s : trees) {
+			if (skill.indexOf(s.replaceAll("[^" + skill + "]", "")) == 0)
+				answer++;
+		}
+
+		return answer;
+	}
+
+	// ㅉ의 풀이 (0.6ms)
+	public int solution6(String skill, String[] trees) {
 		int answer = 0;
 		StringBuffer sb = new StringBuffer();
 		String[] arr;
@@ -94,10 +132,9 @@ public class Skill_Tree {
 
 		Skill_Tree d = new Skill_Tree();
 		String skill = "CBD";
-		String[] skill_trees = { "BACDE", "CBADF", "AECB", "BDA", "OPQ" };
-		String[] skill_trees2 = { "CED" };
+		String[] skill_trees = { "BACDE", "CBADF", "AECB", "BDA", "OPQ", "CED" };
 
-		int result = d.solution(skill, skill_trees);
+		int result = d.solution3(skill, skill_trees);
 		System.out.println(result);
 	}
 }
