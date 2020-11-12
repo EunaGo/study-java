@@ -1,10 +1,7 @@
 package Lv1;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 /*
 [문제 설명]
@@ -21,40 +18,32 @@ strings의 원소는 길이 1 이상, 100이하인 문자열입니다.
 public class Sort_strings_as_I_like {
 
 	// 나의 풀이
-	public static List<String> solution(String[] strings, int n) {
+	public static String[] solution() {
+		
+		String[] strings = { "abce", "abcd", "cdx" };
+		int n = 2;
 
-		List<String> answer = new ArrayList<>();
-		answer.add("sun");
-		answer.add("bed");
-		answer.add("car");
-		
-		for(String s : answer) {
-			System.out.println(s);
-		}
-		
-		Collections.sort(answer, new Comparator<String>() {
+		Arrays.sort(strings, new Comparator<String>() {
 
 			@Override
 			public int compare(String o1, String o2) {
+				char c1 = o1.charAt(n);
+				char c2 = o2.charAt(n);
 				
-				return compare(o1, o2);
+				if(c1>c2) return 1;
+				else if(c1 == c2) return o1.compareTo(o2);
+				else return -1;
 			}
-			
 		});
 		
-		for(String s : answer) {
+		for(String s : strings) {
 			System.out.println(s);
 		}
-
-		return answer;
+		return strings;
 	}
 
 	public static void main(String[] args) {
-
-		String[] strings = { "sun", "bed", "car" };
-		int n = 1;
-
-		solution(strings, n);
+		solution();
 	}
 
 }
