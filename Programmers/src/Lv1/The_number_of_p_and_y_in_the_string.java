@@ -12,7 +12,7 @@ package Lv1;
 */
 public class The_number_of_p_and_y_in_the_string {
 	
-	//나의 풀이
+	// 나의 풀이
     public static boolean solution(String s) {
         boolean answer = true;
         int p = 0;
@@ -23,14 +23,18 @@ public class The_number_of_p_and_y_in_the_string {
         	else if('y' == s.charAt(i) || 'Y' == s.charAt(i)) y++;
         }
         
-        if(p == y) answer = true;
-        else answer = false;
-        
-        return answer;
+        return p==y;
+    }
+    
+    // 다른 사람의 풀이
+    public static boolean solution2(String s) {
+        s = s.toUpperCase();
+
+        return s.chars().filter( e -> 'P'== e).count() == s.chars().filter( e -> 'Y'== e).count();
     }
 
 	public static void main(String[] args) {
-		System.out.println(solution("ooo"));
+		System.out.println(solution("poooYy"));
 	}
 
 }
