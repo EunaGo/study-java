@@ -22,7 +22,7 @@ public class Sort_strings_as_I_like {
 		
 		String[] strings = { "abce", "abcd", "cdx" };
 		int n = 2;
-
+		
 		Arrays.sort(strings, new Comparator<String>() {
 
 			@Override
@@ -41,6 +41,19 @@ public class Sort_strings_as_I_like {
 		}
 		return strings;
 	}
+	
+	// ㅉ의 코드
+	public String[] solution2(String[] s, int n) {
+	      Arrays.sort(s,new Comparator<String>() {
+	         @Override
+	         public int compare(String a, String b) {
+	            char x = a.charAt(n);
+	            char y = b.charAt(n);
+	            return x==y?a.compareTo(b):Integer.compare(x, y);
+	         }
+	      });
+	      return s;
+	   }
 
 	public static void main(String[] args) {
 		solution();
