@@ -14,7 +14,6 @@ public class The_number_of_p_and_y_in_the_string {
 	
 	// 나의 풀이
     public static boolean solution(String s) {
-        boolean answer = true;
         int p = 0;
         int y = 0;
         
