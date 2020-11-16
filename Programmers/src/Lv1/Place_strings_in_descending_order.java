@@ -39,6 +39,13 @@ public class Place_strings_in_descending_order {
 
 	public static void main(String[] args) {
 		solution("Zbcdefg");
+		
+		String[] x = {"hello","world"};
+		String y = "hello";
+		
+		System.out.println(x.toString());			// [Ljava.lang.String;@21bcffb5
+		System.out.println(y.toString());			// hello
+		System.out.println(Arrays.toString(x));		// [hello, world]
 	}
 
 }
