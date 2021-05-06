@@ -9,13 +9,12 @@ n은 10,000,000,000이하인 자연수입니다.
 public class Flip_natural_numbers_to_form_an_array {
 	
     public static int[] solution(long n) {
-        int[] answer = {};
+        int[] answer = new int[(int)n];
         String num = String.valueOf(n);
         String[] arr = num.split("");
         
         for(int i=0; i<arr.length; i++){
-        	//answer[i] = Integer.parseInt(arr[arr.length-i-1]);
-        	answer[i] = 1; 
+        	answer[i] = Integer.parseInt(arr[arr.length-i-1]);
         }
         
         return answer;
