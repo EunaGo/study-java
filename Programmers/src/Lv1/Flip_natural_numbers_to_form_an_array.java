@@ -16,10 +16,6 @@ public class Flip_natural_numbers_to_form_an_array {
         for(int i=0; i<arr.length; i++){
         	answer[i] = Integer.parseInt(arr[arr.length-i-1]);
         }
-        System.out.println(answer.length);
-        for(int j=0; j<answer.length; j++){
-        	//System.out.println(answer[j]);
-        }
         
         return answer;
     }
