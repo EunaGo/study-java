@@ -10,15 +10,12 @@ n은 1이상, 50000000000000 이하인 양의 정수입니다.
 public class Determine_integer_square_root {
 	
     public static long solution(long n) {
-        long answer = 0;
-        
-        
-        
-        return answer;
+        double num = Math.sqrt(n);
+        return num - (int)num > 0 ? -1 : (long)Math.pow(num+1, 2);
     }
 
 	public static void main(String[] args) {
-
+		System.out.println(solution(110));
 	}
 
 }
