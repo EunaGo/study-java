@@ -1,7 +1,4 @@
 package Lv1;
-
-import java.util.HashMap;
-
 /*
 [문제 설명]
 두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환하는 함수, solution을 완성해 보세요. 
@@ -10,6 +7,11 @@ import java.util.HashMap;
 
 [제한 조건]
 두 수는 1이상 1000000이하의 자연수입니다.
+
+++유클리드 호제법++
+85, 51의 최대공약수를 구해보자
+85 % 51 = 34, 51 % 34 = 17, 34 % 17 = 0 이다.
+이때 17이 최대 공약수가 된다.
 */
 public class Maximum_pledge_and_minimum_common_multiple {
 	
@@ -30,7 +32,6 @@ public class Maximum_pledge_and_minimum_common_multiple {
 		        		answer[1] *= i;
 		        		n = n/i;
 		        		m = m/i;
-		        		
 		    			flag = true;
 		        		i++;
 		        		break;
@@ -48,10 +49,30 @@ public class Maximum_pledge_and_minimum_common_multiple {
         
         return answer;
     }
+    
+    // 유클레드 호제법 & ㅉ의 첨삭
+    public static int[] solution2(int n, int m){
+    	int[] answer = new int[2];
+    	answer[1] = n*m;
+    	int val = 1;
+    	
+    	while(val!=0){
+    		val = n % m;
+    		answer[0] = m;
+    		n = m;
+    		m = val;
+    	}
+    	answer[1] /= answer[0];
+    	
+    	return answer;
+    }
 
 	public static void main(String[] args) {
 		//solution(1232, 31244);
-		solution(3, 12);
+		//solution(3, 12);
+		solution2(85, 51);
+		
 	}
+	
 
 }
