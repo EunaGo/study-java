@@ -11,7 +11,7 @@ solution을 완성하세요. 요일의 이름은 일요일부터 토요일까지
 */
 public class Year2016 {
 
-	// 나의 풀이
+	// 나의 풀이 
 	public static String solution(int a, int b) {
 		String answer = "";
 		int cnt = 0;
