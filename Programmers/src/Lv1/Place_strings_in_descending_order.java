@@ -15,7 +15,7 @@ public class Place_strings_in_descending_order {
 
 	// 나의 풀이
 	public static String solution(String s) {
-		String[] answer = s.split("");
+		String[] answer = s.split(""); 
 
 		Arrays.sort(answer, new Comparator<String>() {
 
