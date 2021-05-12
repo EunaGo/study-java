@@ -23,5 +23,5 @@ public class Middle_character_import {
 	public static void main(String[] args) {
 		System.out.println(solution("abc"));
 	}
-	
+	 
 }
