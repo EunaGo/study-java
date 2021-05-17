@@ -1,6 +1,7 @@
 package Lv1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 
 /*
@@ -17,13 +18,10 @@ completion의 길이는 participant의 길이보다 1 작습니다.
 */
 public class An_unfinished_runner {
 	
+	// 효율성에서 실패한 풀이 - List.ver
     public static String solution(String[] participant, String[] completion) {
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(completion));
         String answer = "";
-        
-        for(int i=0; i<completion.length; i++){
-        	list.add(completion[i]);
-        }
         
         for(int j=0; j<participant.length; j++){
         	if(!list.contains(participant[j])){
@@ -36,6 +34,7 @@ public class An_unfinished_runner {
         return answer;
     }
     
+    // 효율성에서 실패한 풀이 - for.ver 
     public static String solution2(String[] participant, String[] completion) {
         String answer = "";
         int chk = 0;
@@ -60,6 +59,7 @@ public class An_unfinished_runner {
         return answer;
     }
     
+    // 실패
     public static String solution3(String[] participant, String[] completion) {
         HashSet<String> map = new HashSet<>();
         String answer = "";
@@ -68,6 +68,7 @@ public class An_unfinished_runner {
         
         for(int i=0; i<completion.length; i++){
         	map.add(completion[i]);
+        	System.out.println(map);
         }
         
         for(int j=0; j<completion.length; j++){
@@ -83,15 +84,38 @@ public class An_unfinished_runner {
         
         return answer;
     }
+    
+    // 성공
+    public static String solution4(String[] participant, String[] completion) {
+        Arrays.sort(participant);
+        Arrays.sort(completion);
+        String answer = "";
+        
+        for(int i=0; i<completion.length; i++){
+        	if(!participant[i].equals(completion[i])){
+        		answer = participant[i];
+        		break;
+        	}
+        }
+        
+        if(answer.equals("")) return participant[participant.length-1];
+        
+        return answer;
+    }
 
 	public static void main(String[] args) {
 		//String[] participant = {"mislav", "stanko", "ana", "mislav"};
 		//String[] completion = {"stanko", "ana", "mislav"};
 		//String[] participant = {"marina", "josipa", "nikola", "vinko", "filipa"};
 		//String[] completion = {"josipa", "filipa", "marina", "nikola"};
-		String[] participant = {"leo","s","leo","s"};
-		String[] completion = {"s","leo","s"};
-		System.out.println(solution3(participant, completion));
+		//String[] participant = {"leo", "kiki", "eden"};
+		//String[] completion = {"eden", "kiki"};
+		//String[] participant = {"leo","leo","ana"};
+		//String[] completion = {"leo","leo"};
+		String[] participant = {"leo"};
+		String[] completion = {};
+		
+		System.out.println(solution4(participant, completion));
 	}
 
 }
